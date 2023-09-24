@@ -1,0 +1,19 @@
+﻿@model Mvc5.Models.Entity.tbl_yeteneklerim
+
+@{
+    ViewBag.Title = "YeniYetenek";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Yetenek Ekleme Formu</h2>
+<br />
+
+<form method="post">
+    @Html.Label("Yetenek Açıklaması");
+    @Html.TextBoxFor(x=>x.Yetenek, new {@class="form-control"})
+    <br />
+    @Html.Label("Seviyeniz(0-100 arasında)")
+    @Html.TextBoxFor(x => x.Oran, new {@class="form-control"})
+    <br />
+    <button class="btn btn-info">Yetenek Ekle</button>
+</form>

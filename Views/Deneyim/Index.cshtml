@@ -1,0 +1,41 @@
+﻿@using Mvc5.Models.Entity
+@model List<tbl_deneyimlerim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Deneyim Listesi</h2>
+<a href="/Deneyim/DeneyimEkle" class="btn btn-primary">Yeni Deneyim Ekle</a>
+<p>
+
+</p>
+<table class="table table-bordered">
+    <tr style="text-align:center">
+        <th>ID</th>
+        <th>BAŞLIK</th>
+        <th>ALT BAŞLIK</th>
+        <th>TARİH</th>
+        <th>DÜZENLE</th>
+        <th>SİL</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+
+            <td>@x.ID</td>
+            <td>@x.Baslik</td>
+            <td>@x.AltBaslik</td>
+            <td>@x.Tarih</td>
+            <td>
+                <a href="/Deneyim/DeneyimGetir/@x.ID" class="btn btn-warning">DÜZENLE</a>
+            </td>
+            <td>
+                <a href="/Deneyim/DeneyimSil/@x.ID" class="btn btn-danger">SİL</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

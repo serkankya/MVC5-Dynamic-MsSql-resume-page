@@ -1,0 +1,26 @@
+﻿@using Mvc5.Models.Entity
+@model List<tbl_hobilerim>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hobilerim Sayfası</h2>
+
+<form method="post">
+    @foreach (var item in Model)
+    {
+
+    
+        <label>Açıklama 1</label>
+        <textarea rows="5" class="form-control" name="Aciklama" >@item.Aciklama</textarea>
+        <br />
+        <label>Açıklama 2</label>
+        <textarea rows="5" class="form-control" name="Aciklama2" >@item.Aciklama2</textarea>
+    }
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+

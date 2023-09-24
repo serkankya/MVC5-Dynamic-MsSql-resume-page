@@ -1,0 +1,37 @@
+﻿@using Mvc5.Models.Entity
+@model List<tbl_hakkimda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımda Sayfası</h2>
+    
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>Ad</label>
+        <input type="text" name="Ad" class="form-control" value=@item.Ad />
+        <br />
+        <label>Soyad</label>
+        <input type="text" name="Soyad" class="form-control" value="@item.Soyad" />
+        <br />
+        <label>Adres</label>
+        <textarea class="form-control" rows="3" name="Adres">@item.Adres</textarea>
+        <br />
+        <label>Mail</label>
+        <input type="text" name="Mail" class="form-control" value="@item.Mail" />
+        <br />
+        <label>Açıklama</label>
+        <textarea class="form-control" rows="3" name="Aciklama">@item.Aciklama</textarea>
+        <br />
+        <label>Resim Linki</label>
+        <input type="text" class="form-control" name="resim" value="@item.Resim" />
+        <br />
+    }
+    <button class="btn btn-primary">Hakkımda Kısmını Güncelle</button>
+    <br />
+    <br />
+</form>
+

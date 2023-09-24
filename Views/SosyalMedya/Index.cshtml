@@ -1,0 +1,85 @@
+﻿@using Mvc5.Models.Entity
+@model List<tbl_sosyalmedya>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{string durumHakkinda = "";}
+
+<h2>Sosyal Medya Hesapları Listesi</h2>
+
+<button class="btn btn-info" data-toggle="modal" data-target="#Modal1">Yeni Hesap Ekle</button>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Platform Adı</th>
+        <th>Durum</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Durum == true)
+        {
+            durumHakkinda = "Aktif";
+        }
+        else if (item.Durum == false)
+        {
+            durumHakkinda = "Pasif";
+        }
+        else
+        {
+            durumHakkinda = "Boş Değer";
+        }
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.PlatformAdi</td>
+            <td>
+                @durumHakkinda
+            </td>
+            <td>
+                <a href="/SosyalMedya/SayfaGetir/@item.ID" class="btn btn-primary btn-sm">
+                    <i class="fas fa-pencil-alt"></i>
+                    Düzenle
+                </a>
+            </td>
+            <td>
+                <a href="/SosyalMedya/Sil/@item.ID" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash-alt"></i>
+                    Sil
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sosyal Medya Ekleme Penceresi</h2>
+            </div>
+            <form method="post" action="/SosyalMedya/Ekle">
+                <div class="modal-body">
+                    <label>Platform Adı</label>
+                    <input type="text" name="PlatformAdi" class="form-control" />
+                    <br />
+                    <label>Hesap Linki</label>
+                    <input type="text" name="Link" class="form-control" />
+                    <br />
+                    <label>Icon Formatı</label>
+                    <input type="text" name="Icon" class="form-control" />
+                    <br />
+                    <button class="btn btn-success">Hesabı Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

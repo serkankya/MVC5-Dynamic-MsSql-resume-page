@@ -1,0 +1,18 @@
+﻿@model Mvc5.Models.Entity.tbl_sertifikalarim
+
+@{
+    ViewBag.Title = "SertifikaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sertifika Düzenleme Formu</h2>
+
+<form method="post">
+    @Html.Label("Sertifika Adı : ")
+    @Html.TextBoxFor(x=>x.Aciklama, new { @class = "form-control", @required = "" })
+    <br />
+    @Html.Label("Alınan Tarih : ")
+    @Html.TextBoxFor(x=>x.Tarih, new { @class = "form-control", @required = "" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+</form>

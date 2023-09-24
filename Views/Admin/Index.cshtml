@@ -1,0 +1,32 @@
+﻿@using Mvc5.Models.Entity
+@model List<tbl_admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Bilgiler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KULLANICI ADI</th>
+        <th>DÜZENLE</th>
+        <th>SİL</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.KullaniciAdi</td>
+            <td>
+                <a href="/Admin/KullaniciGetir/@item.ID" class="btn btn-warning">DÜZENLE</a>
+            </td>
+            <td>
+                <a href="/Admin/KullaniciSil/@item.ID" class="btn btn-danger">SİL</a>
+            </td>
+        </tr>
+    }
+</table>
+

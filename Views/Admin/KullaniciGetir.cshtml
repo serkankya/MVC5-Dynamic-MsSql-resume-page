@@ -1,0 +1,22 @@
+﻿@model Mvc5.Models.Entity.tbl_admin
+
+@{
+    ViewBag.Title = "KullaniciGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Düzenleme Sayfası</h2>
+
+<form method="post">
+    @Html.Label("ID");
+    @Html.TextBoxFor(x => x.ID, new {@class="form-control"})
+    <br />
+    @Html.Label("Kullanıcı Adı")
+    @Html.TextBoxFor(x=>x.KullaniciAdi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şifre")
+    @Html.PasswordFor(x=>x.Sifre, new { @class = "form-control" })
+    <br />
+    <abutton btn btn-primary>Güncelle</abutton>
+</form>
+

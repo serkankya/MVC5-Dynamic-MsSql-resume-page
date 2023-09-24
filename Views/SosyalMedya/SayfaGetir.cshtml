@@ -1,0 +1,25 @@
+﻿@model Mvc5.Models.Entity.tbl_sosyalmedya
+
+@{
+    ViewBag.Title = "SayfaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sosyal Medya Bİlgilerini Güncelleme Formu</h2>
+
+<form method="post">
+    @Html.Label("ID : ")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Platform : ")
+    @Html.TextBoxFor(x => x.PlatformAdi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Link : ")
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    @Html.Label("Icon Formatı : ")
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle ve Hesabı Aktif Hale Getir</button>
+</form>
+

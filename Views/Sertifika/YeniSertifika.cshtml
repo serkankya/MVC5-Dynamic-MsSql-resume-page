@@ -1,0 +1,20 @@
+﻿@model Mvc5.Models.Entity.tbl_sertifikalarim
+
+@{
+    ViewBag.Title = "YeniSertifika";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Sertifika Ekleme Formu</h2>
+<br />
+
+<form method="post">
+    @Html.Label("Sertifikanızın Adını Giriniz : ")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" ,@required=""})
+    <br />
+    @Html.Label("Sertifikayı Aldığınız Tarihi Giriniz :")
+    @Html.TextBoxFor(x => x.Tarih, new {@class="form-control",@required=""})
+    <br />
+    <button class="btn btn-primary">Sertifika Ekle</button>
+</form>
+
